@@ -1,0 +1,26 @@
+{{msg}}
+<br>
+<form [formGroup]='registerForm' (submit)="onRegister()">
+    <fieldset>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Name</label>
+            <input type="name" class="form-control" id="name" aria-describedby="name" placeholder="Enter email" formControlName="name">
+          </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" formControlName="email">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" formControlName="password">
+      </div>
+      <div class="form-group">
+        <label for="exampleSelect1">Account Type</label>
+        <select class="form-control" id="exampleSelect1" formControlName="permission">
+          <option>Donator</option>
+          <option>Project Manager</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </fieldset>
+  </form>

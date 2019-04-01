@@ -1,0 +1,56 @@
+<table class="table table-hover">
+  <tbody>
+    <tr class="table-active">
+      <td div *ngIf="parentData != 'pm'">
+        <div *ngIf="projects">
+          <div class="row">
+            <div *ngFor="let project of projects">
+              <div class="col-md-4">
+                <h3>{{project.name}}</h3>
+                <img src="{{getImgURL(project)}}" height="200" width="200" (click)="onProjectClick(project)">
+              </div>
+            </div>
+          </div>
+        </div>
+      </td>
+      <td>
+        <div class="card mb-3" *ngIf="shownProject">
+          <h3 class="card-header">{{shownProject.name}}</h3>
+          <img style="height: 200px; width: 100%; display: block;" src="{{getImgURL(shownProject)}}"
+            alt="Card image">
+          <div class="card-body">
+            <p class="card-text">{{shownProject.description}}</p>
+          </div>
+          <div *ngIf="parentData != 'home'">
+            <div class="card-body" *ngIf="parentData != 'donator'">
+              <p class="card-text">Donators : {{getDonators()}}</p>
+            </div>
+          </div>
+          <div>
+            <div class="card-body" *ngIf="parentData == 'admin'">
+              <p class="card-text">Manager Email : {{shownProject.managerEmail}}</p>
+            </div>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{calLeft()}} Days Left ...</li>
+            <li class="list-group-item">{{shownProject.sum}} donated , out of {{shownProject.target}} - {{getPerc()}}%
+            </li>
+          </ul>
+          <div class="card-body">
+            <a href="{{shownProject.video}}" class="card-link">Video</a>
+          </div>
+          <div class="card-body" *ngIf="parentData == 'donator'">
+              <div class="form-group">
+                  <form [formGroup]='projectForm' (submit)="onDonate()">
+                    {{msg}}
+                      <label for="exampleInputEmail1">Donate : </label>
+                      <input type="name" class="form-control" id="name" aria-describedby="name" formControlName="donation">
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+                </div>
+            </div>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

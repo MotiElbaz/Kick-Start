@@ -1,0 +1,46 @@
+{{msg}}
+<br>
+<table class="table table-hover">
+  <tbody>
+    <tr class="table-active">
+      <td>
+        <app-project *ngIf="flag" [userName]="userName" [parentData]="permission" [shownProject]="pmProject" [donators]="donators"></app-project>
+      </td>
+      <td *ngIf="isPm">
+        <form [formGroup]='projectForm' (submit)="onSumbit()">
+          <fieldset>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Name</label>
+              <input type="name" class="form-control" id="name" aria-describedby="name" formControlName="name">
+            </div>
+            <div class="form-group">
+              <label for="exampleTextarea">Description</label>
+              <textarea class="form-control" id="exampleTextarea" rows="3" formControlName="description"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Target</label>
+              <input type="target" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="target">
+            </div>
+            <div class="form-group">
+              <div class="form-group">
+                <label for="dateOfBirth">Date</label>
+                <input id="dateOfBirth" name="dateOfBirth" [(ngModel)]="dateOfTarget" formControlName="dateOfTarget" type="date" class="form-control"
+                />
+              </div>
+            </div>
+            <form>
+                <input style="display: none" type="file" (change)="onFileChanged($event)" #fileInput>
+                <button (click)="fileInput.click()">Select File</button>
+                <button (click)="onUpload()">Upload!</button>
+              </form>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Video URL</label>
+              <input type="videoURL" class="form-control" id="video" aria-describedby="video" formControlName="video">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </fieldset>
+        </form>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,13 @@
+<h2 class="page-header" >Login</h2>
+<form [formGroup]='loginForm' class="form-signin" (submit)="onLogin()">
+  {{errMsg}}
+        <div class="form-group">
+          <label for="Email">Email</label>
+          <input type="text" class="form-control" name="email" formControlName="email">
+        </div>
+        <div class="form-group">
+        <label for="Password">Password</label>
+        <input type="password" class="form-control" name="password" formControlName="password">
+        </div>
+        <input class="btn btn-lg btn-primary" type="submit" value="Login">
+</form>

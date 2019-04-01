@@ -1,0 +1,29 @@
+{
+  "name": "kick-start",
+  "version": "1.0.0",
+  "description": "Social Foundation Project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
+  },
+  "dependencies": {
+    "@types/del": "^3.0.1",
+    "bcryptjs": "*",
+    "body-parser": "*",
+    "cors": "*",
+    "express": "*",
+    "gridfs-stream": "^1.1.1",
+    "jsonwebtoken": "*",
+    "moment": "^2.22.2",
+    "mongoose": "*",
+    "multer": "^1.3.1",
+    "multer-gridfs-storage": "^3.0.1",
+    "nodemon": "^1.18.3",
+    "passport": "*",
+    "passport-jwt": "*",
+    "rxjs-compat": "^6.2.2"
+  },
+  "author": "Moti Elbaz",
+  "license": "ISC"
+}
